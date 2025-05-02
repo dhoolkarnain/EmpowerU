@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 60 56% 91%; /* Light beige */
+    --foreground: 180 100% 10%; /* Darker Teal for text */
+    --card: 60 56% 96%; /* Slightly lighter beige for cards */
+    --card-foreground: 180 100% 10%;
+    --popover: 60 56% 96%;
+    --popover-foreground: 180 100% 10%;
+    --primary: 180 100% 25%; /* Deep teal */
+    --primary-foreground: 60 56% 98%; /* Very light beige/white for text on primary */
+    --secondary: 60 20% 85%; /* Slightly darker beige for secondary elements */
+    --secondary-foreground: 180 100% 15%; /* Dark teal for text on secondary */
+    --muted: 60 20% 88%; /* Muted beige */
+    --muted-foreground: 180 50% 35%; /* Muted teal */
+    --accent: 20 60% 50%; /* Burnt orange */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 10% 80%; /* Teal-tinted border */
+    --input: 180 10% 85%; /* Teal-tinted input */
+    --ring: 20 60% 50%; /* Burnt orange for focus rings */
+    --chart-1: 180 76% 31%;
+    --chart-2: 20 58% 59%;
+    --chart-3: 197 37% 44%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 180 10% 95%; /* Light teal tint for sidebar */
+    --sidebar-foreground: 180 100% 10%;
+    --sidebar-primary: 180 100% 25%; /* Deep teal */
+    --sidebar-primary-foreground: 60 56% 98%;
+    --sidebar-accent: 20 60% 50%; /* Burnt orange */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 180 10% 80%;
+    --sidebar-ring: 20 60% 50%;
+  }
+  .dark {
+    /* Adding a basic dark theme, can be refined later */
+    --background: 180 15% 10%; /* Dark teal background */
+    --foreground: 60 30% 90%; /* Light beige text */
+    --card: 180 15% 15%;
+    --card-foreground: 60 30% 90%;
+    --popover: 180 15% 15%;
+    --popover-foreground: 60 30% 90%;
+    --primary: 180 100% 35%; /* Brighter Deep teal */
+    --primary-foreground: 180 100% 95%;
+    --secondary: 180 10% 25%; /* Darker secondary teal */
+    --secondary-foreground: 60 30% 90%;
+    --muted: 180 10% 20%;
+    --muted-foreground: 60 20% 70%;
+    --accent: 20 70% 60%; /* Brighter Burnt orange */
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 10% 30%;
+    --input: 180 10% 25%;
+    --ring: 20 70% 60%;
+    --chart-1: 180 70% 50%;
+    --chart-2: 20 60% 65%;
+    --chart-3: 197 37% 54%;
+    --chart-4: 43 74% 76%;
+    --chart-5: 27 87% 77%;
+     --sidebar-background: 180 15% 12%;
+    --sidebar-foreground: 60 30% 90%;
+    --sidebar-primary: 180 100% 35%;
+    --sidebar-primary-foreground: 180 100% 95%;
+    --sidebar-accent: 20 70% 60%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 180 10% 30%;
+    --sidebar-ring: 20 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply transition-colors duration-300; /* Add transition for theme changes */
+  }
+
+  section {
+    @apply py-12 md:py-20 lg:py-24; /* Add default padding to sections */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+     @apply font-semibold tracking-tight; /* Consistent heading style */
+  }
+
+  h1 { @apply text-4xl lg:text-5xl; }
+  h2 { @apply text-3xl lg:text-4xl; }
+  h3 { @apply text-2xl lg:text-3xl; }
+}
+
+@layer components {
+    /* Add subtle hover effect for cards */
+    .hover-lift {
+        @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
+    }
+}
+
+/* Add subtle page transition animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-transition {
+  animation: fadeIn 0.5s ease-out forwards;
+}
